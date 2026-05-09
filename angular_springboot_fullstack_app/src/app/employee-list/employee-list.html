@@ -1,0 +1,18 @@
+<h2>Employee List</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>EmailId</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (employee of employees$ | async; track employee.id) {
+        <tr>
+            <td>{{ employee.firstName }}</td>
+            <td>{{ employee.lastName }}</td>
+            <td>{{ employee.emailId }}</td>
+        </tr>
+    }
+  </tbody>
