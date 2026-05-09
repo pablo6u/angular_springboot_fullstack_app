@@ -9,5 +9,5 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular_springboot_fullstack_app');
+  protected readonly title = signal('Pablito, the Creator');
 }

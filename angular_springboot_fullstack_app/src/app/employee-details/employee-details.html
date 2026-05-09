@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-3">Employee Details</h2>
+
+        @if (!loadData()) {
+            <div class="alert alert-info" role="alert">
+                Loading employee data...
+            </div>
+        }
+
+        @if (loadData()) {
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ employee.firstName }} {{ employee.lastName }}</h5>
+                    <p class="card-text"><strong>Email:</strong> {{ employee.emailId }}</p>
+                    <a [routerLink]="['/employees']" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

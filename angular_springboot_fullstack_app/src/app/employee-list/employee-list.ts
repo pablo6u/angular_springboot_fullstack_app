@@ -54,4 +54,8 @@ export class EmployeeList {
       }
     );
   }
+  
+  viewEmployeeDetails(id: number) {
+    this.router.navigate(['employee-details', id]);
+  }
 }

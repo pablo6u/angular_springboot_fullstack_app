@@ -1,20 +1,17 @@
 import { Component, inject, signal } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { EmployeeService } from '../employee-service';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Employee } from '../employee';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-update-employee',
-  standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink],
-  templateUrl: './update-employee.html',
-  styleUrl: './update-employee.css',
+  selector: 'app-employee-details',
+  imports: [RouterLink],
+  templateUrl: './employee-details.html',
+  styleUrl: './employee-details.css',
 })
-export class UpdateEmployee {
+export class EmployeeDetails {
 
-  // Injecting the required services.
+    // Injecting the required services.
   private employeeService = inject(EmployeeService);
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
@@ -45,23 +42,4 @@ export class UpdateEmployee {
       }
     )
   }
-
-  onSubmit() {
-    this.employeeService.updateEmployee(this.employee).subscribe({
-      next: () => {
-        this.goToEmployeeList();
-      },
-      error: (error: any) => {
-        console.error('Error updating employee', error);
-        this.failedMessage.set("Failed to update employee. Please try again.");
-      }
-    });
-  }
-
-  goToEmployeeList() {
-     this.router.navigate(['/employees'], {
-          state: { message: 'Employee updated successfully!' }
-        });
-  }
 }
-  
