@@ -20,4 +20,8 @@ export class EmployeeList {
   private router = inject(Router);
 
   message = this.router.getCurrentNavigation()?.extras.state?.['message'] ?? ''; // deprecated in Angular 16, will be removed in Angular 17. Used only for demonstration purposes.
+
+  updateEmployee(id: number) {
+    this.router.navigate(['update-employee', id]);
+  }
 }
