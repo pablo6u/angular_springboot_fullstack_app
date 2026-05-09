@@ -3,16 +3,19 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="employees" routerLinkActive="active">Employee List</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="create-employee" routerLinkActive="active">Add Employee</a>
+    </li>
   </ul>
 </nav>
 
-<h1 class="text-center">{{ title() }}</h1>
 <div class="container">
+  <h1 class="mt-4 mb-4">{{ title() }}</h1>
   <router-outlet></router-outlet>
 </div>
 
-<footer class="footer">
-  <div class="container">
+<footer class="footer bg-primary">
+  <div class="container ">
     <span>Copyright &copy; 2024</span>
   </div>
 </footer>

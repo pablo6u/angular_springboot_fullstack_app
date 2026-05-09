@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { EmployeeService } from '../employee-service';
 import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -15,4 +16,8 @@ export class EmployeeList {
   private employeeService = inject(EmployeeService);
 
   employees$ = this.employeeService.getEmployeeList();
+
+  private router = inject(Router);
+
+  message = this.router.getCurrentNavigation()?.extras.state?.['message'] ?? ''; // deprecated in Angular 16, will be removed in Angular 17. Used only for demonstration purposes.
 }
