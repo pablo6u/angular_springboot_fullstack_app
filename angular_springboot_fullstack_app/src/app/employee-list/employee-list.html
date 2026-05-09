@@ -16,15 +16,24 @@
     </tr>
   </thead>
   <tbody>
-    @for (employee of employees$ | async; track employee.id) {
+    @if (loadData()) {
+        @for (employee of employeeList; track employee.id) {
         <tr>
             <td>{{ employee.firstName }}</td>
             <td>{{ employee.lastName }}</td>
             <td>{{ employee.emailId }}</td>
             <td>
                 <button class="btn btn-info" (click)="updateEmployee(employee.id)">Update</button>
-                <!-- <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button> -->
+                <button class="btn btn-danger" (click)="deleteEmployee(employee.id)" style="margin-left: 10px;">Delete</button>
             </td>
         </tr>
+      }
     }
+
+    @if (!loadData()) {
+        <tr>
+            <td colspan="4" class="text-center">Loading employee data...</td>
+        </tr>
+    }
+    
   </tbody>
